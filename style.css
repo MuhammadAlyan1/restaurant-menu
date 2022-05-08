@@ -1,0 +1,255 @@
+:root {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  --clr-gold: #c59d5f;
+  --clr-paragraph: #617d98;
+  --clr-title: #102a42;
+  --body-background: hsl(210, 36%, 96%);
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  background-color: var(--body-background);
+}
+
+/*
+================
+ header
+================
+*/
+
+.header h1 {
+  font-size: 2.5rem;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  margin-top: 5rem;
+  position: relative;
+}
+
+.header h1::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 5rem;
+  bottom: -15px;
+  left: 50px;
+  background-color: var(--clr-gold);
+}
+
+/*
+================
+ button-div
+================
+*/
+
+.header .button-div {
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.header .button-div button {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border: 2px solid var(--clr-gold);
+  border-radius: 10px;
+  color: var(--clr-gold);
+  background-color: var(--body-background);
+  font-weight: 500;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.header .button-div .active {
+  background-color: var(--clr-gold);
+  color: white;
+  transition: all 0.5s ease;
+}
+
+/*
+================
+ menu-items 
+================
+*/
+
+.menu-items {
+  padding: 2rem;
+  display: grid;
+}
+
+/*
+================
+ image-div 
+================
+*/
+.image-div {
+  border: 4px solid var(--clr-gold);
+  border-radius: 10px;
+  overflow: hidden;
+  /* height: 200px;
+  width: 400px; */
+}
+
+.image-div img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*
+================
+ price-title 
+================
+*/
+
+.content-div .title-price {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted var(--clr-paragraph);
+}
+
+/*
+================
+ title 
+================
+*/
+
+.content-div #title {
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: var(--clr-title);
+  margin-bottom: 10px;
+}
+
+/*
+================
+ price 
+================
+*/
+.content-div #price {
+  letter-spacing: 3px;
+  color: var(--clr-gold);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/*
+================
+ description 
+================
+*/
+.content-div #description {
+  color: var(--clr-paragraph);
+  font-weight: 100;
+  font-family: "Open Sans";
+}
+
+@media (min-width: 0px) and (max-width: 750px) {
+  .menu-items {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-item {
+    max-width: 400px;
+    margin-bottom: 3rem;
+  }
+
+  .image-div {
+    max-width: 400px;
+    height: 200px;
+  }
+
+  .image-div img {
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 751px) and (max-width: 1200px) {
+  .menu-item {
+    display: grid;
+    grid-template-areas: "image-div content-div";
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .image-div {
+    width: 250px;
+    height: 150px;
+    grid-area: image-div;
+  }
+
+  .image-div img {
+    object-fit: cover;
+  }
+
+  .content-div {
+    grid-area: content-div;
+    width: 400px;
+  }
+
+  .content-div #title,
+  .content-div #price {
+    font-size: 1.2rem;
+    margin-top: 0px;
+  }
+
+  .menu-item #description {
+    grid-area: content-div;
+  }
+}
+
+@media (min-width: 1201px) {
+  body {
+    overflow-x: hidden;
+  }
+  .menu-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+
+  .menu-item {
+    display: grid;
+    grid-template-areas: "image-div content-div";
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .image-div {
+    width: 250px;
+    height: 150px;
+    grid-area: image-div;
+  }
+
+  .image-div img {
+    object-fit: cover;
+  }
+
+  .content-div {
+    grid-area: content-div;
+    width: 290px;
+  }
+
+  .content-div #title,
+  .content-div #price {
+    font-size: 1.1rem;
+    margin-top: 0px;
+  }
+
+  .menu-item #description {
+    grid-area: content-div;
+  }
+}
